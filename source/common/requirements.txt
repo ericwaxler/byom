@@ -1,0 +1,4 @@
+s3fs
+boto3
+pymysql
+pytz

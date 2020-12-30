@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>BYOM</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-default">
+    <a class="navbar-brand" style="background-color: #0ea099; color:white; padding-inline:10%;" height="100%"; href="#">BYOM</a>
+    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggle-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-right" id="navbarSupportedContent"></div>
+      <ul class="nav justify-content-end">
+          <li class="nav-item active">
+              <a class="nav-link" href="accounts">Accounts <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="analysis">Analysis</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 jumbotron text-center">
+        <h1>BYOM</h1>
+        <p>View your account summary below</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="well">
+          <h5>Select Cryptocurrency:</h5>
+          <select id="selDataset" onchange="optionChanged(this.value)"></select>
+        </div>
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Account Total</h3>
+          </div>
+          <div id="account-sum" class="panel-body">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            Cryptocurrency Performance
+          </div>
+        </div>
+        <div id="plot"></div>
+      </div>
+      <div class="col-md-5">
+        <div id="gauge"></div>
+      </div>
+    </div>
+  <div class="row justify-content-center">
+    <div class="col-md-12">
+      <table id="summary-table" class="table table-striped table-inverse">
+        <thead>
+          <tr>
+            <th onclick="sortTable(0)">Name</th>
+            <th>Symbol</th>
+            <th onclick="sortTable(2)">Shares</th>
+            <th onclick="sortTable(3)">Price</th>
+            <th onclick="sortTable(4)">Avg. Cost</th>
+            <th onclick="sortTable(5)">Total Return</th>
+            <th onclick="sortTable(6)">Equity</th>
+            <th onclick="sortTable(7)">Percentage Gain</th>
+            <th onclick="sortTable(8)">Allocation</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+  </div>
+
+  <!-- <script src="https://cdn.plot.ly/plotly-1.31.2.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+</body>
+
+</html>
